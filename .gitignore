@@ -72,5 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # NO ASSETS
-/Assets
-!/Assets/Scenes/ #except scenes
+/Assets/notToPush #Assets that not to push
