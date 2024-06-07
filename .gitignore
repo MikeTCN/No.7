@@ -73,3 +73,4 @@ crashlytics-build.properties
 
 # NO ASSETS
 /Assets/notToPush/ #Assets that not to push
+/Assets/notToPush
