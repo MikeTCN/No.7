@@ -2,20 +2,25 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sail Optimized
-  m_Shader: {fileID: 4800000, guid: a16c8b5f3a039a342bfee8951505ce12, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: -6465566751694194690, guid: c8dd9c0ab1f381645b3bc02670d44e00,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -48,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmblemTex:
-        m_Texture: {fileID: 2800000, guid: ad73836909cf1f745a799982a49efbcd, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -103,6 +108,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -126,6 +144,8 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Power: 0.94
+    - _QueueControl: -1
+    - _QueueOffset: 0
     - _SailArch: 2.64
     - _SailArchStart: 0.5
     - _SailLift: 0
@@ -137,6 +157,7 @@ Material:
     - _SailSideways: 0
     - _SailTaper: 0
     - _SailTilt: 0
+    - _SailTiltTop: 0
     - _SailTopArch: 0
     - _SailWind: 0.968
     - _Scale: 0.56
@@ -150,6 +171,7 @@ Material:
     - _VorSmoothness: 1
     - _VorSpeed: 0.81
     - _VorStrength: 4.64
+    - _YScale: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
