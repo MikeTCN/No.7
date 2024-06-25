@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sail
+  m_Shader: {fileID: 4800000, guid: a16c8b5f3a039a342bfee8951505ce12, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 7f72c70daec4f1d46a22e4d727f04da5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DamageTex:
+        m_Texture: {fileID: 2800000, guid: 4fd627af487d2de4498560c2462bad6a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DamageTex1:
+        m_Texture: {fileID: 2800000, guid: 3542b31748e22bf44a2f24d8fe0fb5ef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DamageTex2:
+        m_Texture: {fileID: 2800000, guid: 6d87240ffc89bbd4791dfbe0552952ab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmblemTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FurlMap:
+        m_Texture: {fileID: 2800000, guid: 36c342d0b02b60346b7b67ad94d20fde, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FurledMap:
+        m_Texture: {fileID: 2800000, guid: 648d05258023b184f9e102253b1d18f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ImpactRipple:
+        m_Texture: {fileID: 2800000, guid: 303a841e83d4860489ea7c920859405a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ImpactTex:
+        m_Texture: {fileID: 2800000, guid: efa97dfba14eeb34b921be51f49792e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1fbb5ff5b6685384f8cf060bbe819de0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 2800000, guid: defdaa53db5c7ec48a6f02dcef96ceaf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMapRev:
+        m_Texture: {fileID: 2800000, guid: defdaa53db5c7ec48a6f02dcef96ceaf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: a8d289156e5b80b4998fd042501996ff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleNoise:
+        m_Texture: {fileID: 2800000, guid: 1388a3e78bf6c3a49b893dea7f9c9cf8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Thickness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _Damage: 0
+    - _DetailNormalMapScale: 1
+    - _Distortion: 0.41
+    - _DstBlend: 0
+    - _EmblemBackFace: 0.347
+    - _EmblemBackface: 1
+    - _FillPercent: 0.946
+    - _FullRipple: 0.827
+    - _Furl: 0.03
+    - _FurledRadius: 0.96
+    - _GlossMapScale: 1
+    - _Glossiness: 0.271
+    - _GlossyReflections: 1
+    - _ImpactCount: 0
+    - _ImpactCutoff: 0.16
+    - _Metallic: 0.375
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _Power: 0.91
+    - _SailArch: 0
+    - _SailArchStart: 0.776
+    - _SailLift: 0
+    - _SailLiftArch: 0.46
+    - _SailLiftSideArch: -0.16
+    - _SailReverse: 0.49
+    - _SailShear: 0
+    - _SailSideArch: 0
+    - _SailSideways: 0.299
+    - _SailTaper: 0
+    - _SailTilt: 0
+    - _SailTiltTop: 0
+    - _SailTopArch: -0.13
+    - _SailWind: 0.975
+    - _Scale: 0.98
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _Speed: 3.79
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _VorScale: 6.6
+    - _VorSeed: 1.33
+    - _VorSmoothness: 0.86
+    - _VorSpeed: 1.65
+    - _VorStrength: 5
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmblemColor: {r: 1, g: 1, b: 1, a: 0.70980394}
+    - _EmblemEmColor: {r: 0.0007314645, g: 0.000114889706, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ImpactLoc: {r: 0, g: 0, b: 0, a: 0}
+    - _ImpactLocation: {r: 0, g: 0, b: -1, a: 0}
+    - _SailForward: {r: 0, g: 0, b: 1, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SubColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WindDir: {r: 0, g: 0, b: 1, a: 0}
+  m_BuildTextureStacks: []
