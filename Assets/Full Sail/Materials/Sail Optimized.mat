@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sail Optimized
-  m_Shader: {fileID: -6465566751694194690, guid: c8dd9c0ab1f381645b3bc02670d44e00,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 56e56ae2ab6d5d04e9ff117e416292c5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -90,7 +89,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1fbb5ff5b6685384f8cf060bbe819de0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4fd627af487d2de4498560c2462bad6a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
