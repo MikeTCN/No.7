@@ -1,0 +1,486 @@
+newmtl asc1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd asc1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl asc3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd asc3.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl asc5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd ASC4.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl asc7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd asc5.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl barrel
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd barrel.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl barrel2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd barrel2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl body2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd body2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl body4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd body3.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl bodyx
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd bodyx.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl bodyx2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd bodyx2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl clr_black
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd clr_black.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl crate
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd crate.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl crb_A
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd crb_A.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl deck
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd deck.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl delo
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd delo.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl delo_tx1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd delo_tx1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl delo_tx2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd delo_tx2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl delo_tx3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd delo_tx3.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl doors
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd doors.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl kybel
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd kybel.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl lano
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd lano.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl light
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd light.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl light_tx
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd light_tx.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl lod
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd lod.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl mtl
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd MTL.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl mtl2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd mtl2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl mtl_box
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd MTL_BOX.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl orn1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd orn1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl orn2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd orn2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl orn3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd orn3.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl orn7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd orn4.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl orn9
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd orn5.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl rig_low
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd RIG_low.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl rig_tx1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd RIG_tx1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl sail1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd sail1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl sail2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd sail2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl sail5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd sail4.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx3_V
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx3_v.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx4_v
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx4_v.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx4_v2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx4_v2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx5.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx5v
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx5_V.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx6
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx6.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx7.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx_b1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx_b1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx_mtl
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx_mtl.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl tx_pas
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd tx_pas.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl txb2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd txb2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl vzadu
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd vzadu.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl wall1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd wall1.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl wd2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd wd2.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+newmtl wd3_Dark
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.30 0.30 0.30
+Tf 1.00 1.00 1.00
+map_Kd wd3_Dark.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
