@@ -2,11 +2,12 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class TransitionController : MonoBehaviour
+public class TransitionController2 : MonoBehaviour
 {
     public float jumpHeight; // XR原点跳起的高度
     public float transitionTime; // 过场效果的持续时间
     public int sceneToLoad;
+    public SceneTransitionManager sceneTransitionManager; // Reference to the SceneTransitionManager
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class TransitionController : MonoBehaviour
             yield return null;
         }
 
-        // 切换到下一个场景
-        SceneManager.LoadScene(sceneToLoad); // 将"NextScene"替换为你要切换的场景名称
+        // 使用SceneTransitionManager进行场景切换
+        sceneTransitionManager.GoToSceneAsync(sceneToLoad);
     }
 }
