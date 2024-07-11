@@ -5,21 +5,41 @@ using System.Collections;
 public class TransitionController2 : MonoBehaviour
 {
     public float jumpHeight; // XR原点跳起的高度
+    public float jumpSpeed; // XR原点跳起的速度
     public float transitionTime; // 过场效果的持续时间
     public int sceneToLoad;
     public SceneTransitionManager sceneTransitionManager; // Reference to the SceneTransitionManager
 
+    private Vector3 initialPosition; // 初始位置
+
     private void Start()
     {
-        // 在开始时触发过场效果
+        initialPosition = transform.position; // 记录初始位置
         StartCoroutine(TransitionCoroutine());
     }
 
     private IEnumerator TransitionCoroutine()
     {
-        // 将XR原点移动到目标位置
-        Vector3 targetPosition = transform.position + Vector3.up * jumpHeight;
+        // 计算跳起的持续时间
+        float jumpDuration = jumpHeight / jumpSpeed;
+
+        // XR原点跳起
         float elapsedTime = 0f;
+
+        while (elapsedTime < jumpDuration)
+        {
+            // 使用插值函数将XR原点跳起
+            float t = elapsedTime / jumpDuration;
+            float jumpAmount = Mathf.Lerp(0f, jumpHeight, t);
+            transform.position = initialPosition + Vector3.up * jumpAmount;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 将XR原点移动到目标位置
+        Vector3 targetPosition = initialPosition + Vector3.up * jumpHeight;
+        elapsedTime = 0f;
 
         while (elapsedTime < transitionTime)
         {
@@ -32,6 +52,7 @@ public class TransitionController2 : MonoBehaviour
         }
 
         // 使用SceneTransitionManager进行场景切换
+        yield return new WaitForSeconds(transitionTime); // 等待过场效果的持续时间
         sceneTransitionManager.GoToSceneAsync(sceneToLoad);
     }
 }
