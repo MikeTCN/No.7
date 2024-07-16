@@ -14,7 +14,7 @@ Shader "Azure[Sky]/Weather Particles Additive"
         Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" }
         Blend SrcAlpha One
         ColorMask RGB
-        Cull Back Lighting Off ZWrite Off
+        Cull Off Lighting Off ZWrite Off
         
         SubShader
         {
@@ -59,6 +59,7 @@ Shader "Azure[Sky]/Weather Particles Additive"
                     {
                         v2f o;
                         UNITY_SETUP_INSTANCE_ID(v);
+                        UNITY_INITIALIZE_OUTPUT(v2f, o); // Stereo Instancing
                         UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                         o.vertex = UnityObjectToClipPos(v.vertex);
                         #ifdef SOFTPARTICLES_ON

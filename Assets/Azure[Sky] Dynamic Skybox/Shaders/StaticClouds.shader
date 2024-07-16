@@ -90,6 +90,7 @@
             struct Attributes
             {
                 float4 vertex : POSITION;
+                UNITY_VERTEX_INPUT_INSTANCE_ID // Stereo Instancing
             };
 
             // Vertex to fragment
@@ -100,12 +101,17 @@
                 float3 SunPos   : TEXCOORD1;
                 float3 MoonPos  : TEXCOORD2;
                 float3 StarPos  : TEXCOORD3;
+                UNITY_VERTEX_OUTPUT_STEREO // Stereo Instancing
             };
 
             // Vertex shader
             Varyings vertex_program (Attributes v)
             {
                 Varyings Output = (Varyings)0;
+
+                UNITY_SETUP_INSTANCE_ID(v); // Stereo Instancing
+                UNITY_INITIALIZE_OUTPUT(Varyings, Output); // Stereo Instancing
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(Output); // Stereo Instancing
                 
                 Output.Position = UnityObjectToClipPos(v.vertex);
                 Output.WorldPos = normalize(mul((float3x3)unity_WorldToObject, v.vertex.xyz));

@@ -35,8 +35,8 @@
             #define MieG float3(0.4375f, 1.5625f, 1.5f)
             
             // Textures
-            uniform sampler2D _MainTex;
-            uniform sampler2D_float _CameraDepthTexture;
+            //uniform sampler2D _MainTex;
+            //uniform sampler2D_float _CameraDepthTexture;
             uniform float4x4  _Azure_FrustumCorners;
             uniform float4    _MainTex_TexelSize;
 
@@ -50,8 +50,6 @@
 
             // Scattering
             uniform int    _Azure_ScatteringMode;
-            uniform float  _Azure_Kr;
-            uniform float  _Azure_Km;
             uniform float3 _Azure_Rayleigh;
             uniform float3 _Azure_Mie;
             uniform float  _Azure_Scattering;
@@ -78,6 +76,7 @@
             {
                 float4 vertex   : POSITION;
                 float4 texcoord : TEXCOORD0;
+                UNITY_VERTEX_INPUT_INSTANCE_ID // Stereo Instancing
             };
 
             // Vertex to fragment
@@ -87,12 +86,17 @@
                 float2 screen_uv 	   : TEXCOORD0;
                 float4 interpolatedRay : TEXCOORD1;
                 float2 depth_uv        : TEXCOORD2;
+                UNITY_VERTEX_OUTPUT_STEREO // Stereo Instancing
             };
 
             // Vertex shader
             Varyings vertex_program (Attributes v)
             {
                 Varyings Output = (Varyings)0;
+
+                UNITY_SETUP_INSTANCE_ID(v); // Stereo Instancing
+                UNITY_INITIALIZE_OUTPUT(Varyings, Output); // Stereo Instancing
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(Output); // Stereo Instancing
 
                 v.vertex.z = 0.1;
                 Output.Position = UnityObjectToClipPos(v.vertex);
@@ -112,14 +116,24 @@
                 return Output;
             }
 
+            UNITY_DECLARE_SCREENSPACE_TEXTURE(_MainTex); // Stereo Instancing
+            UNITY_DECLARE_SCREENSPACE_TEXTURE(_CameraDepthTexture); // Stereo Instancing
+
             // Fragment shader
             float4 fragment_program (Varyings Input) : SV_Target
             {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(Input); // Stereo Instancing
+
                 // Original scene
-                float3 screen = tex2D(_MainTex, UnityStereoTransformScreenSpaceTex(Input.screen_uv)).rgb;
+                //float3 screen = tex2D(_MainTex, UnityStereoTransformScreenSpaceTex(Input.screen_uv)).rgb;
+                
+                float3 screen = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_MainTex, Input.screen_uv); // Stereo Instancing
+                float3 depthTex = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_CameraDepthTexture, Input.depth_uv); // Stereo Instancing
 
                 // Reconstruct world space position and direction towards this screen pixel
-                float depth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,UnityStereoTransformScreenSpaceTex(Input.depth_uv))));
+                //float depth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,UnityStereoTransformScreenSpaceTex(Input.depth_uv))));
+
+                float depth = Linear01Depth(UNITY_SAMPLE_DEPTH(depthTex));
                 if(depth == 1.0) return float4(screen, 1.0);
                 float mieDepth = saturate(lerp(depth * 4, 1.0, _Azure_MieDepth));
 
@@ -136,8 +150,8 @@
                 //float zenith = acos(length(viewDir.y));
                 float zenith = acos(saturate(dot(float3(-1.0, 1.0, -1.0), depth))) * _Azure_FogScatteringScale;
                 float z = (cos(zenith) + 0.15 * pow(93.885 - ((zenith * 180.0f) / PI), -1.253));
-                float SR = _Azure_Kr / z;
-                float SM = _Azure_Km / z;
+                float SR = 8400.0 / z;
+                float SM = 1200.0 / z;
 
                 // Extinction
                 float3 fex = exp(-(_Azure_Rayleigh * SR  + _Azure_Mie * SM));
@@ -183,8 +197,6 @@
                 #endif
 
                 // Calcule fog distance
-                //float globalFog = smoothstep(-_Azure_GlobalFogSmooth, 1.25, depth * _ProjectionParams.z / _Azure_GlobalFogDistance) * _Azure_GlobalFogDensity;
-                //float heightFogDistance = smoothstep(-_Azure_HeightFogSmooth, 1.25, depth * _ProjectionParams.z / _Azure_HeightFogDistance);
                 float globalFog = smoothstep(-_Azure_GlobalFogSmooth, 1.25, length(depth * Input.interpolatedRay.xyz) / _Azure_GlobalFogDistance) * _Azure_GlobalFogDensity;
                 float heightFogDistance = smoothstep(-_Azure_HeightFogSmooth, 1.25, length(depth * Input.interpolatedRay.xyz) / _Azure_HeightFogDistance);
 

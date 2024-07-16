@@ -89,6 +89,7 @@
             struct Attributes
             {
                 float4 vertex : POSITION;
+                UNITY_VERTEX_INPUT_INSTANCE_ID // Stereo Instancing
             };
 
             // Vertex to fragment
@@ -100,12 +101,17 @@
                 float3 MoonPos  : TEXCOORD2;
                 float3 StarPos  : TEXCOORD3;
 				float4 CloudUV  : TEXCOORD4;
+                UNITY_VERTEX_OUTPUT_STEREO // Stereo Instancing
             };
 
             // Vertex shader
             Varyings vertex_program (Attributes v)
             {
                 Varyings Output = (Varyings)0;
+
+                UNITY_SETUP_INSTANCE_ID(v); // Stereo Instancing
+                UNITY_INITIALIZE_OUTPUT(Varyings, Output); // Stereo Instancing
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(Output); // Stereo Instancing
 
                 Output.Position = UnityObjectToClipPos(v.vertex);
                 Output.WorldPos = normalize(mul((float3x3)unity_WorldToObject, v.vertex.xyz));
@@ -140,8 +146,8 @@
                 // Optical depth
                 float zenith = acos(saturate(dot(float3(0.0, 1.0, 0.0), viewDir))) * _Azure_FogScatteringScale;
                 float z = (cos(zenith) + 0.15 * pow(93.885 - ((zenith * 180.0f) / PI), -1.253));
-                float SR = _Azure_Kr / z;
-                float SM = _Azure_Km / z;
+                float SR = 8400.0 / z;
+                float SM = 1200.0 / z;
 
                 // Extinction
                 float3 fex = exp(-(_Azure_Rayleigh * SR  + _Azure_Mie * SM));
