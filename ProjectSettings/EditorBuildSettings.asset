@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/allScenes/PressToStart.unity
+    guid: 17aea0f0c3c0b99439792d53fd022fcb
+  - enabled: 1
+    path: Assets/allScenes/Opening.unity
+    guid: 9200ee9e262c3d14fa974c8aa826e571
+  - enabled: 1
     path: Assets/allScenes/Sea.unity
     guid: 39ca00aa6268593418b81c24e0fb0190
   - enabled: 1
