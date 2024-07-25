@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 2688d6c29eec44e4492350b129e12c3a
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: chemcam
+    100004: lower_arm
+    100006: lower_suspension_p1_left
+    100008: lower_suspension_p1_right
+    100010: mahli_apxs
+    100012: //RootNode
+    100014: mm_pin
+    100016: mounting_bracket
+    100018: steering_bracket
+    100020: swivel
+    100022: swivel_bracket
+    100024: upper_arm
+    100026: upper_suspension_p1_left
+    100028: upper_suspension_p1_right
+    100030: upper_suspension_p2_left
+    100032: upper_suspension_p2_left1
+    100034: upper_suspension_p2_Right
+    100036: upper_suspension_p2_right
+    100038: Wheel
+    400000: Body
+    400002: chemcam
+    400004: lower_arm
+    400006: lower_suspension_p1_left
+    400008: lower_suspension_p1_right
+    400010: mahli_apxs
+    400012: //RootNode
+    400014: mm_pin
+    400016: mounting_bracket
+    400018: steering_bracket
+    400020: swivel
+    400022: swivel_bracket
+    400024: upper_arm
+    400026: upper_suspension_p1_left
+    400028: upper_suspension_p1_right
+    400030: upper_suspension_p2_left
+    400032: upper_suspension_p2_left1
+    400034: upper_suspension_p2_Right
+    400036: upper_suspension_p2_right
+    400038: Wheel
+    2100000: Mars_Rover_Steel
+    2100002: Mars_Painted_Steel
+    2100004: Mars_Rover_Extra
+    2100006: Mar_Rover_Dark_Steel
+    2300000: Body
+    2300002: chemcam
+    2300004: lower_arm
+    2300006: lower_suspension_p1_left
+    2300008: lower_suspension_p1_right
+    2300010: mahli_apxs
+    2300012: mm_pin
+    2300014: mounting_bracket
+    2300016: steering_bracket
+    2300018: swivel
+    2300020: swivel_bracket
+    2300022: upper_arm
+    2300024: upper_suspension_p1_left
+    2300026: upper_suspension_p1_right
+    2300028: upper_suspension_p2_left
+    2300030: upper_suspension_p2_left1
+    2300032: upper_suspension_p2_Right
+    2300034: upper_suspension_p2_right
+    2300036: Wheel
+    3300000: Body
+    3300002: chemcam
+    3300004: lower_arm
+    3300006: lower_suspension_p1_left
+    3300008: lower_suspension_p1_right
+    3300010: mahli_apxs
+    3300012: mm_pin
+    3300014: mounting_bracket
+    3300016: steering_bracket
+    3300018: swivel
+    3300020: swivel_bracket
+    3300022: upper_arm
+    3300024: upper_suspension_p1_left
+    3300026: upper_suspension_p1_right
+    3300028: upper_suspension_p2_left
+    3300030: upper_suspension_p2_left1
+    3300032: upper_suspension_p2_Right
+    3300034: upper_suspension_p2_right
+    3300036: Wheel
+    4300000: Body
+    4300002: chemcam
+    4300004: Wheel
+    4300006: mahli_apxs
+    4300008: lower_suspension_p1_left
+    4300010: lower_suspension_p1_right
+    4300012: steering_bracket
+    4300014: mounting_bracket
+    4300016: swivel_bracket
+    4300018: swivel
+    4300020: upper_suspension_p1_left
+    4300022: upper_suspension_p1_right
+    4300024: upper_arm
+    4300026: upper_suspension_p2_left1
+    4300028: upper_suspension_p2_Right
+    4300030: lower_arm
+    4300032: mm_pin
+    4300034: upper_suspension_p2_left
+    4300036: upper_suspension_p2_right
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mar_Rover_Dark_Steel
+    second: {fileID: 2100000, guid: 090ca4de229ac479faa4249ce396d354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mars_Painted_Steel
+    second: {fileID: 2100000, guid: 9dab1a870c1d74bc098a21b05d87a8b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mars_Rover_Extra
+    second: {fileID: 2100000, guid: 3acc49c7a488e4b4083fe29c488991e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mars_Rover_Steel
+    second: {fileID: 2100000, guid: 0b1272f9fbaf04d7eb488cbd6afcbcfd, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
