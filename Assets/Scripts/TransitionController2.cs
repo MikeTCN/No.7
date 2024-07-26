@@ -9,7 +9,7 @@ public class TransitionController2 : MonoBehaviour
     public float transitionTime; // 过场效果的持续时间
     public int sceneToLoad;
     public SceneTransitionManager sceneTransitionManager; // Reference to the SceneTransitionManager
-
+    public float timeToTriggerJump; // 触发跳跃之前的等待时间
     private Vector3 initialPosition; // 初始位置
 
     private void Start()
@@ -20,15 +20,14 @@ public class TransitionController2 : MonoBehaviour
 
     private IEnumerator TransitionCoroutine()
     {
-        // 计算跳起的持续时间
-        float jumpDuration = jumpHeight / jumpSpeed;
+        float jumpDuration = jumpHeight / jumpSpeed; // 计算跳起的持续时间
+        float elapsedTime = 0f; // 过场效果计时器
 
-        // XR原点跳起
-        float elapsedTime = 0f;
+        yield return new WaitForSeconds(timeToTriggerJump); // 等待触发跳跃的时间
 
+        // 跳跃效果
         while (elapsedTime < jumpDuration)
         {
-            // 使用插值函数将XR原点跳起
             float t = elapsedTime / jumpDuration;
             float jumpAmount = Mathf.Lerp(0f, jumpHeight, t);
             transform.position = initialPosition + Vector3.up * jumpAmount;
@@ -37,13 +36,11 @@ public class TransitionController2 : MonoBehaviour
             yield return null;
         }
 
-        // 将XR原点移动到目标位置
         Vector3 targetPosition = initialPosition + Vector3.up * jumpHeight;
         elapsedTime = 0f;
 
         while (elapsedTime < transitionTime)
         {
-            // 使用插值函数平滑移动XR原点
             float t = elapsedTime / transitionTime;
             transform.position = Vector3.Lerp(transform.position, targetPosition, t);
 
@@ -51,7 +48,6 @@ public class TransitionController2 : MonoBehaviour
             yield return null;
         }
 
-        // 使用SceneTransitionManager进行场景切换
         yield return new WaitForSeconds(transitionTime); // 等待过场效果的持续时间
         sceneTransitionManager.GoToSceneAsync(sceneToLoad);
     }
