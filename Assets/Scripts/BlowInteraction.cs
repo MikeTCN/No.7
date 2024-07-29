@@ -1,74 +1,71 @@
-﻿using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.XR.Hands;
 
 public class HandBlowInteraction : MonoBehaviour
 {
     public XRHand hand; // XRHand 引用
     public Transform blowZone;
-    public float blowZoneRadius = 0.1f; // 起始值設小一點
+    public float blowZoneRadius = 0.2f;
     public Animator targetAnimator;
-    public string animationTriggerName = "BlowTrigger";
+    public string animationParameterName = "IsBlowing"; // 改為動畫參數名稱
+    public bool useAnimatorTrigger = false; // 是否使用觸發器而不是布爾值
 
-    public float fingerCurlThreshold = 0.1f; // 初始值設大一點
-    public float cooldownTime = 1f;
+    public float fingerCurlThreshold = 0.1f; // 手指彎曲閾值
+    public float cooldownTime = 1f; // 冷卻時間，防止連續觸發
+
+    [Header("Microphone Settings")]
+    public float micSensitivity = 100; // 麥克風靈敏度
+    public float loudness = 0; // 當前音量大小
+    public float blowThreshold = 0.1f; // 吹氣音量閾值
 
     private bool isInBlowZone = false;
     private float lastBlowTime = -1f;
+    private AudioClip microphoneClip;
+    private string currentMicrophoneDevice;
+
+    private void Start()
+    {
+        InitializeMicrophone();
+    }
 
     private void Update()
     {
-        if (hand == null)
+        if (hand == null || !hand.isTracked)
         {
-            Debug.LogError("Hand reference is not set!");
-            return;
-        }
-
-        if (!hand.isTracked)
-        {
-            Debug.Log("Hand is not tracked");
             return;
         }
 
         XRHandJoint palmJoint = hand.GetJoint(XRHandJointID.Palm);
         if (palmJoint.TryGetPose(out var palmPose))
         {
-            float distance = Vector3.Distance(palmPose.position, blowZone.position);
-            Debug.Log($"Distance to blow zone: {distance}");
-            isInBlowZone = distance <= blowZoneRadius;
+            isInBlowZone = Vector3.Distance(palmPose.position, blowZone.position) <= blowZoneRadius;
 
-            if (isInBlowZone)
+            UpdateLoudness();
+
+            if (isInBlowZone && Time.time - lastBlowTime > cooldownTime)
             {
-                Debug.Log("Hand is in blow zone");
-                if (Time.time - lastBlowTime > cooldownTime)
+                if (IsBlowingGesture() && IsBlowingSound())
                 {
-                    if (IsFingerInterlockGesture())
-                    {
-                        Debug.Log("Blow gesture triggered!");
-                        if (targetAnimator != null)
-                        {
-                            targetAnimator.SetTrigger(animationTriggerName);
-                        }
-                        else
-                        {
-                            Debug.LogError("Target Animator is not set!");
-                        }
-                        lastBlowTime = Time.time;
-                    }
+                    TriggerBlowAnimation();
+                    Debug.Log("吹氣動作觸發！");
+                    lastBlowTime = Time.time;
+                }
+                else
+                {
+                    StopBlowAnimation();
                 }
             }
-        }
-        else
-        {
-            Debug.Log("Failed to get palm pose");
+            else
+            {
+                StopBlowAnimation();
+            }
         }
     }
 
-    private bool IsFingerInterlockGesture()
+    private bool IsBlowingGesture()
     {
         if (!hand.isTracked)
         {
-            Debug.Log("Hand is not tracked in gesture check");
             return false;
         }
 
@@ -81,7 +78,6 @@ public class HandBlowInteraction : MonoBehaviour
 
         if (!palmCenter.TryGetPose(out var palmPose))
         {
-            Debug.Log("Failed to get palm pose in gesture check");
             return false;
         }
 
@@ -106,13 +102,77 @@ public class HandBlowInteraction : MonoBehaviour
         if (validFingers > 0)
         {
             avgDistance /= validFingers;
-            Debug.Log($"Average finger distance: {avgDistance}");
             return avgDistance < fingerCurlThreshold;
+        }
+
+        return false;
+    }
+
+    private void InitializeMicrophone()
+    {
+        if (Microphone.devices.Length > 0)
+        {
+            currentMicrophoneDevice = Microphone.devices[0]; // 使用第一個可用的麥克風
+            microphoneClip = Microphone.Start(currentMicrophoneDevice, true, 1, AudioSettings.outputSampleRate);
         }
         else
         {
-            Debug.Log("No valid finger poses found");
-            return false;
+            Debug.LogError("沒有找到麥克風設備！");
+        }
+    }
+
+    private void UpdateLoudness()
+    {
+        if (microphoneClip != null)
+        {
+            float[] waveData = new float[1024];
+            int micPosition = Microphone.GetPosition(currentMicrophoneDevice) - (1024 + 1);
+            if (micPosition < 0) return;
+            microphoneClip.GetData(waveData, micPosition);
+
+            float wavePeak = 0f;
+            for (int i = 0; i < 1024; i++)
+            {
+                float waveSample = waveData[i] * waveData[i];
+                if (waveSample > wavePeak)
+                {
+                    wavePeak = waveSample;
+                }
+            }
+            loudness = Mathf.Sqrt(wavePeak) * micSensitivity;
+        }
+    }
+
+    private bool IsBlowingSound()
+    {
+        return loudness > blowThreshold;
+    }
+
+    private void TriggerBlowAnimation()
+    {
+        if (useAnimatorTrigger)
+        {
+            targetAnimator.SetTrigger(animationParameterName);
+        }
+        else
+        {
+            targetAnimator.SetBool(animationParameterName, true);
+        }
+    }
+
+    private void StopBlowAnimation()
+    {
+        if (!useAnimatorTrigger)
+        {
+            targetAnimator.SetBool(animationParameterName, false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (Microphone.IsRecording(currentMicrophoneDevice))
+        {
+            Microphone.End(currentMicrophoneDevice);
         }
     }
 
