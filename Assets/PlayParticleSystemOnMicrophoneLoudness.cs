@@ -17,7 +17,7 @@ public class PlayParticleSystemOnMicrophoneLoudness : MonoBehaviour
 
         if (loudness <= threshold && particles.isPlaying)
             particles.Stop();
-        else if (loudness > threshold && particles.isStopped)
+        else if(loudness > threshold && particles.isStopped)
             particles.Play();
     }
 
