@@ -1,23 +1,61 @@
 ﻿using UnityEngine;
 
-public class AnimationController : MonoBehaviour
+public class CarAnimationController : MonoBehaviour
 {
-    public Animator animator;
-    public string animationName;
+    public GameObject car;
+    private Animator animator;
+    private float animationLength;
+    private float animationStartTime;
+    private bool isAnimationPlaying = false;
 
     private void Start()
     {
-        // 播放動畫
-        animator.Play(animationName);
+        animator = car.GetComponent<Animator>();
+        if (animator != null)
+        {
+            AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+            if (clipInfo.Length > 0)
+            {
+                animationLength = clipInfo[0].clip.length;
+            }
+            else
+            {
+                Debug.LogWarning("無法獲取動畫片段信息。請確保汽車對象有動畫片段。");
+            }
+        }
+        else
+        {
+            Debug.LogError("汽車對象上沒有找到 Animator 組件！");
+        }
     }
 
     private void Update()
     {
-        // 檢查動畫是否正在播放並且已經到達最後一幀
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        if (isAnimationPlaying && Time.time - animationStartTime > animationLength)
         {
-            // 停止動畫播放
-            animator.Play(animationName, 0, 0f);
+            StopAnimation();
+        }
+    }
+
+    public void TriggerAnimation()
+    {
+        if (!isAnimationPlaying && animator != null)
+        {
+            animator.enabled = true;
+            animator.speed = 1;
+            animationStartTime = Time.time;
+            isAnimationPlaying = true;
+            Debug.Log("動畫開始播放");
+        }
+    }
+
+    private void StopAnimation()
+    {
+        if (animator != null)
+        {
+            animator.speed = 0;
+            isAnimationPlaying = false;
+            Debug.Log("動畫停止");
         }
     }
 }
