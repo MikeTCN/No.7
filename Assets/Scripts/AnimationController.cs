@@ -2,22 +2,22 @@
 
 public class AnimationController : MonoBehaviour
 {
-    public Animation animationComponent;
+    public Animator animator;
     public string animationName;
 
     private void Start()
     {
         // 播放動畫
-        animationComponent.Play(animationName);
+        animator.Play(animationName);
     }
 
     private void Update()
     {
         // 檢查動畫是否正在播放並且已經到達最後一幀
-        if (animationComponent.IsPlaying(animationName) && animationComponent[animationName].time >= animationComponent[animationName].length)
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
             // 停止動畫播放
-            animationComponent.Stop(animationName);
+            animator.Play(animationName, 0, 0f);
         }
     }
 }
