@@ -6,6 +6,7 @@ public class RotateByTA : MonoBehaviour
 {
     public float rotateSpeed = 10.0f;  // 默认旋转速度
     public Transform target;  // 地球的Transform
+    public bool clockwise = true;  // 控制旋转方向，默认顺时针
 
     void Start()
     {
@@ -20,8 +21,9 @@ public class RotateByTA : MonoBehaviour
     {
         if (target != null)
         {
-            // 绕地球旋转
-            transform.RotateAround(target.position, Vector3.up, rotateSpeed * Time.deltaTime);
+            // 根据方向控制旋转
+            float direction = clockwise ? 1.0f : -1.0f;
+            transform.RotateAround(target.position, Vector3.up, direction * rotateSpeed * Time.deltaTime);
 
             // 调试信息
             Debug.Log("Moon Position: " + transform.position);
