@@ -40,7 +40,7 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
             events[i].Invoke();
             yield return new WaitForSeconds(delay);
         }
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(10.0f);  // It will not trigger on the first 10 seconds, time modifiable based on voiceover
         isStartCoroutineFinished = true; // Set flag to true to indicate coroutine has finished
     }
 
