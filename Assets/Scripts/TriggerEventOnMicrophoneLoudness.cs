@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AzureSky;
 using UnityEngine.Events;
 
 public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
@@ -11,39 +9,39 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
     public float threshold = 0.1f;
     public AudioSource audioSource; // AudioSource component
 
-    public UnityEvent customEvent; // Custom UnityEvent to trigger in response to microphone loudness
-    public UnityEvent stopEvent; // Custom UnityEvent to stop other component when triggered
+    public UnityEvent[] customEvents; // Array of custom UnityEvents to trigger in response to microphone loudness
+    public UnityEvent[] newCustomEvents;
 
-    private bool isStopped = false; // Flag to track if stop event has been triggered
+    private bool isStartCoroutineFinished = false; // Flag to track if coroutine has finished   
+    private bool hasStartedCustomEvent = false; // Flag to track if custom event has started
 
-    public AzureEffectsController azureEffectsController; // Reference to AzureEffectsController script
+    void Start()
+    {
+        initializeWeather();
+    }
 
     void Update()
     {
         float loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
+        Debug.Log(loudness);
 
-        if (loudness > threshold && !isStopped)
+        if (loudness > threshold && !hasStartedCustomEvent && isStartCoroutineFinished)
         {
-            customEvent.Invoke(); // Invoke the custom event when loudness exceeds the threshold
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-            stopEvent.Invoke(); // Invoke the stop event to stop other components
-            isStopped = true; // Set flag to true to indicate stop event has been triggered
-
-            // Stop the AzureEffectsController script
-            azureEffectsController.enabled = false;
-        }
-        else if (loudness <= threshold && isStopped)
-        {
-            isStopped = false; // Reset the flag when loudness falls below threshold
+            StartCoroutine(TriggerEventsWithDelay(newCustomEvents, 1.6f));
+            hasStartedCustomEvent = true; // Set flag to true to indicate custom event has started
         }
 
-        if (loudness <= threshold && audioSource.isPlaying)
+    }
+
+    private IEnumerator TriggerEventsWithDelay(UnityEvent[] events, float delay)
+    {
+        for (int i = 0; i < events.Length; i++)
         {
-            audioSource.Stop(); // Stop audio source when loudness falls below threshold
+            events[i].Invoke();
+            yield return new WaitForSeconds(delay);
         }
+        yield return new WaitForSeconds(10.0f);
+        isStartCoroutineFinished = true; // Set flag to true to indicate coroutine has finished
     }
 
     private void OnDisable()
@@ -52,5 +50,10 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    public void initializeWeather()
+    {
+        StartCoroutine(TriggerEventsWithDelay(customEvents, 0.2f));
     }
 }
