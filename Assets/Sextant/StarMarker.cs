@@ -14,8 +14,20 @@ public class StarMarker : MonoBehaviour
         PlaceOnSkyboxSurface();
     }
 
+    void Update()
+    {
+        // 在播放模式和编辑模式下都确保对象在表面上
+        PlaceOnSkyboxSurface();
+    }
+
     void PlaceOnSkyboxSurface()
     {
+        if (secondSkybox == null)
+        {
+            Debug.LogWarning("SecondSkybox is not assigned.");
+            return;
+        }
+
         Vector3 direction = (transform.position - secondSkybox.position).normalized;
         transform.position = secondSkybox.position + direction * skyboxRadius;
     }
