@@ -12,20 +12,14 @@ EditorBuildSettings:
     path: Assets/allScenes/Opening.unity
     guid: 9200ee9e262c3d14fa974c8aa826e571
   - enabled: 1
-    path: Assets/allScenes/3Screens.unity
-    guid: bd7f703b868999449b8d4212e5ace609
-  - enabled: 1
     path: Assets/allScenes/Sea.unity
     guid: 39ca00aa6268593418b81c24e0fb0190
   - enabled: 1
-    path: Assets/allScenes/sextant.unity
-    guid: 92a54ad9596c6874ca4b617af228443a
-  - enabled: 1
-    path: Assets/allScenes/Sea 2.unity
-    guid: 55be8791be6c1894d9f172c996002efd
-  - enabled: 1
     path: Assets/allScenes/galaxyPlanets.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/allScenes/3Screens.unity
+    guid: bd7f703b868999449b8d4212e5ace609
   - enabled: 1
     path: Assets/allScenes/marsterrain.unity
     guid: da78f6827acc2a9479d6c317e2f81054
