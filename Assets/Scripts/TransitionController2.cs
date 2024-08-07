@@ -4,39 +4,43 @@ using System.Collections;
 
 public class TransitionController2 : MonoBehaviour
 {
-    public float jumpHeight; // XR原点跳起的高度
-    public float jumpSpeed; // XR原点跳起的速度
-    public float transitionTime; // 过场效果的持续时间
+    public float jumpHeight; // XR原點跳起的高度
+    public float jumpSpeed; // XR原點跳起的速度
+    public float transitionTime; // 過場效果的持續時間
     public int sceneToLoad;
     public SceneTransitionManager sceneTransitionManager; // Reference to the SceneTransitionManager
-    public float timeToTriggerJump; // 触发跳跃之前的等待时间
-    private Vector3 initialPosition; // 初始位置
+    public float timeToTriggerJump; // 觸發跳躍之前的等待時間
+    private Vector3 jumpStartPosition; // 跳躍開始的位置
 
     private void Start()
     {
-        initialPosition = transform.position; // 记录初始位置
         StartCoroutine(TransitionCoroutine());
     }
 
     private IEnumerator TransitionCoroutine()
     {
-        float jumpDuration = jumpHeight / jumpSpeed; // 计算跳起的持续时间
-        float elapsedTime = 0f; // 过场效果计时器
+        yield return new WaitForSeconds(timeToTriggerJump - 0.5f); // 等待觸發跳躍的時間減去0.5秒
 
-        yield return new WaitForSeconds(timeToTriggerJump); // 等待触发跳跃的时间
+        // 記錄跳躍前0.5秒的位置
+        jumpStartPosition = transform.position;
 
-        // 跳跃效果
+        yield return new WaitForSeconds(0.5f); // 等待0.5秒
+
+        float jumpDuration = jumpHeight / jumpSpeed; // 計算跳起的持續時間
+        float elapsedTime = 0f; // 過場效果計時器
+
+        // 跳躍效果
         while (elapsedTime < jumpDuration)
         {
             float t = elapsedTime / jumpDuration;
             float jumpAmount = Mathf.Lerp(0f, jumpHeight, t);
-            transform.position = initialPosition + Vector3.up * jumpAmount;
+            transform.position = jumpStartPosition + Vector3.up * jumpAmount;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        Vector3 targetPosition = initialPosition + Vector3.up * jumpHeight;
+        Vector3 targetPosition = jumpStartPosition + Vector3.up * jumpHeight;
         elapsedTime = 0f;
 
         while (elapsedTime < transitionTime)
@@ -48,7 +52,7 @@ public class TransitionController2 : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(transitionTime); // 等待过场效果的持续时间
+        yield return new WaitForSeconds(transitionTime); // 等待過場效果的持續時間
         sceneTransitionManager.GoToSceneAsync(sceneToLoad);
     }
 }
