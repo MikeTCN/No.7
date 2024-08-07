@@ -11,7 +11,7 @@ public class SextantRaycaster : MonoBehaviour
 
     private bool[] starsActivated;
     private bool allStarsActivated = false;
-    private bool isNorthStarLocked = false;
+    public static bool isNorthStarLocked = false; // ¾²Ì¬²¼¶û±äÁ¿
 
     void Start()
     {
