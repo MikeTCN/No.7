@@ -4,13 +4,16 @@ using System.Collections;
 
 public class TransitionController2 : MonoBehaviour
 {
-    public float jumpHeight; // XR原點跳起的高度
-    public float jumpSpeed; // XR原點跳起的速度
-    public float transitionTime; // 過場效果的持續時間
+    public float jumpHeight = 100f; // 增加跳躍高度以確保穿越雲層
+    public float jumpSpeed;
+    public float transitionTime;
     public int sceneToLoad;
-    public SceneTransitionManager sceneTransitionManager; // Reference to the SceneTransitionManager
-    public float timeToTriggerJump; // 觸發跳躍之前的等待時間
-    private Vector3 jumpStartPosition; // 跳躍開始的位置
+    public SceneTransitionManager sceneTransitionManager;
+    public float timeToTriggerJump;
+    private Vector3 jumpStartPosition;
+
+    public ParticleSystem cloudEffect; // 雲效果的粒子系統
+    public float cloudEffectHeight = 80f; // 觸發雲效果的高度
 
     private void Start()
     {
@@ -19,22 +22,30 @@ public class TransitionController2 : MonoBehaviour
 
     private IEnumerator TransitionCoroutine()
     {
-        yield return new WaitForSeconds(timeToTriggerJump - 0.5f); // 等待觸發跳躍的時間減去0.5秒
+        yield return new WaitForSeconds(timeToTriggerJump - 0.5f);
 
-        // 記錄跳躍前0.5秒的位置
         jumpStartPosition = transform.position;
 
-        yield return new WaitForSeconds(0.5f); // 等待0.5秒
+        yield return new WaitForSeconds(0.5f);
 
-        float jumpDuration = jumpHeight / jumpSpeed; // 計算跳起的持續時間
-        float elapsedTime = 0f; // 過場效果計時器
+        float jumpDuration = jumpHeight / jumpSpeed;
+        float elapsedTime = 0f;
 
-        // 跳躍效果
+        bool cloudEffectTriggered = false;
+
         while (elapsedTime < jumpDuration)
         {
             float t = elapsedTime / jumpDuration;
             float jumpAmount = Mathf.Lerp(0f, jumpHeight, t);
-            transform.position = jumpStartPosition + Vector3.up * jumpAmount;
+            Vector3 newPosition = jumpStartPosition + Vector3.up * jumpAmount;
+            transform.position = newPosition;
+
+            // 檢查是否達到雲效果高度
+            if (!cloudEffectTriggered && newPosition.y >= jumpStartPosition.y + cloudEffectHeight)
+            {
+                TriggerCloudEffect();
+                cloudEffectTriggered = true;
+            }
 
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -52,7 +63,20 @@ public class TransitionController2 : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(transitionTime); // 等待過場效果的持續時間
+        yield return new WaitForSeconds(transitionTime);
         sceneTransitionManager.GoToSceneAsync(sceneToLoad);
+    }
+
+    private void TriggerCloudEffect()
+    {
+        if (cloudEffect != null)
+        {
+            cloudEffect.transform.position = transform.position;
+            cloudEffect.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Cloud effect particle system is not assigned!");
+        }
     }
 }
