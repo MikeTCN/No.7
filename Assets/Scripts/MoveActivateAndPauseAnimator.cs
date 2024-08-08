@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoveActivateAndPauseAnimator : MonoBehaviour
 {
-    public PlayParticleSystemOnMicrophoneLoudness soundDetector; // 引用聲音檢測腳本
+    public PlayParticleSystemOnMicrophoneLoudness soundDetector;
     public GameObject objectToMove;
     public GameObject sphereToShrink;
     public Vector3 targetPosition = new Vector3(230.789993f, 38.5009995f, 272.664001f);
@@ -42,7 +42,7 @@ public class MoveActivateAndPauseAnimator : MonoBehaviour
 
     void ShrinkSphereOnSound()
     {
-        if (soundDetector.particles.isPlaying) // 使用粒子系統的播放狀態來判斷是否檢測到聲音
+        if (soundDetector.particles.isPlaying)
         {
             Vector3 newScale = sphereToShrink.transform.localScale - Vector3.one * shrinkSpeed * Time.deltaTime;
             newScale = Vector3.Max(newScale, Vector3.one * minSphereSize);
@@ -72,6 +72,14 @@ public class MoveActivateAndPauseAnimator : MonoBehaviour
         if (objectAnimator != null)
         {
             objectAnimator.enabled = true;
+
+            // 停止粒子系統的觸發
+            if (soundDetector != null)
+            {
+                soundDetector.enabled = false;  // 禁用聲音檢測腳本
+                soundDetector.particles.Stop(); // 停止粒子系統
+                soundDetector.audioSource.Stop(); // 停止音頻源
+            }
         }
     }
 
