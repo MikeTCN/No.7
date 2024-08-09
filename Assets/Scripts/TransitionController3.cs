@@ -9,10 +9,10 @@ public class TransitionController3 : MonoBehaviour
     public float transitionTime;
     public int sceneToLoad;
     public SceneTransitionManager sceneTransitionManager;
-    public float waitTimeBeforeTransition = 3f; // 可在Inspector中修改的等待時間
 
     private Vector3 jumpStartPosition;
     private bool isTransitionTriggered = false;
+    private bool isAnimatorPaused = false;
 
     private MoveActivateAndPauseAnimator moveActivateScript;
     private Animator objectAnimator;
@@ -44,26 +44,27 @@ public class TransitionController3 : MonoBehaviour
         {
             if (objectAnimator.speed == 0)
             {
-                TriggerTransitionAfterDelay();
-                break;
+                isAnimatorPaused = true;
+            }
+            else
+            {
+                isAnimatorPaused = false;
             }
             yield return new WaitForSeconds(0.1f); // 每0.1秒檢查一次
         }
     }
 
-    private void TriggerTransitionAfterDelay()
+    public void StartTransition()
     {
-        if (!isTransitionTriggered)
+        if (!isTransitionTriggered && isAnimatorPaused)
         {
             isTransitionTriggered = true;
-            StartCoroutine(WaitAndStartTransition());
+            StartCoroutine(TransitionCoroutine());
         }
-    }
-
-    private IEnumerator WaitAndStartTransition()
-    {
-        yield return new WaitForSeconds(waitTimeBeforeTransition);
-        StartCoroutine(TransitionCoroutine());
+        else if (!isAnimatorPaused)
+        {
+            Debug.LogWarning("Cannot start transition: Animator is not paused.");
+        }
     }
 
     private IEnumerator TransitionCoroutine()
