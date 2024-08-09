@@ -4,29 +4,23 @@ using System.Collections;
 
 public class TransitionController2 : MonoBehaviour
 {
-    public float jumpHeight = 100f; // 增加跳躍高度以確保穿越雲層
+    public float jumpHeight = 100f;
     public float jumpSpeed;
     public float transitionTime;
     public int sceneToLoad;
     public SceneTransitionManager sceneTransitionManager;
-    public float timeToTriggerJump;
     private Vector3 jumpStartPosition;
+    public ParticleSystem cloudEffect;
+    public float cloudEffectHeight = 80f;
 
-    public ParticleSystem cloudEffect; // 雲效果的粒子系統
-    public float cloudEffectHeight = 80f; // 觸發雲效果的高度
-
-    private void Start()
+    public void StartTransition()
     {
         StartCoroutine(TransitionCoroutine());
     }
 
     private IEnumerator TransitionCoroutine()
     {
-        yield return new WaitForSeconds(timeToTriggerJump - 0.5f);
-
         jumpStartPosition = transform.position;
-
-        yield return new WaitForSeconds(0.5f);
 
         float jumpDuration = jumpHeight / jumpSpeed;
         float elapsedTime = 0f;
@@ -40,7 +34,6 @@ public class TransitionController2 : MonoBehaviour
             Vector3 newPosition = jumpStartPosition + Vector3.up * jumpAmount;
             transform.position = newPosition;
 
-            // 檢查是否達到雲效果高度
             if (!cloudEffectTriggered && newPosition.y >= jumpStartPosition.y + cloudEffectHeight)
             {
                 TriggerCloudEffect();
