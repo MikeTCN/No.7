@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/allScenes/marsterrain.unity
     guid: da78f6827acc2a9479d6c317e2f81054
+  - enabled: 1
+    path: Assets/allScenes/Final.unity
+    guid: 0eecaa6cbc0f3be4abf681eefec7c920
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 690891438cf3f0a4eb9fd2e5a4afbaa7,
       type: 2}
