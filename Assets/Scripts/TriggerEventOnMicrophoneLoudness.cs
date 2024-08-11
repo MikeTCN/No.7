@@ -12,10 +12,11 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
     public UnityEvent[] customEvents;
     public UnityEvent[] newCustomEvents;
 
+    public UnityEvent OnTriggerComplete; // 新增的事件，將在所有事件完成後觸發
+
     private bool isStartCoroutineFinished = false;
     private bool hasStartedCustomEvent = false;
 
-    // 新增的變量
     [SerializeField] private Material sailOptimizedMaterial;
     [SerializeField] private Material sailMaterial;
     private static readonly string VOR_STRENGTH = "_VorStrength";
@@ -49,6 +50,9 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
         }
         yield return new WaitForSeconds(10.0f);
         isStartCoroutineFinished = true;
+
+        // 在所有事件完成後觸發 OnTriggerComplete 事件
+        OnTriggerComplete.Invoke();
     }
 
     private void OnDisable()
@@ -64,7 +68,6 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
         StartCoroutine(TriggerEventsWithDelay(customEvents, 0.2f));
     }
 
-    // 新增的方法
     private void SetInitialShaderValues()
     {
         if (sailOptimizedMaterial != null)
