@@ -13,13 +13,24 @@ public class TransitionController2 : MonoBehaviour
     public ParticleSystem cloudEffect;
     public float cloudEffectHeight = 80f;
 
+    private bool hasTransitioned = false; // 新增：用於標記是否已經轉場
+
     public void StartTransition()
     {
-        StartCoroutine(TransitionCoroutine());
+        if (!hasTransitioned) // 檢查是否已經轉場
+        {
+            StartCoroutine(TransitionCoroutine());
+        }
+        else
+        {
+            Debug.Log("轉場已經觸發過，忽略此次請求。");
+        }
     }
 
     private IEnumerator TransitionCoroutine()
     {
+        hasTransitioned = true; // 標記轉場已開始
+
         jumpStartPosition = transform.position;
 
         float jumpDuration = jumpHeight / jumpSpeed;
@@ -71,5 +82,12 @@ public class TransitionController2 : MonoBehaviour
         {
             Debug.LogWarning("Cloud effect particle system is not assigned!");
         }
+    }
+
+    // 可選：如果需要重置狀態（例如，用於測試目的）
+    public void ResetTransitionState()
+    {
+        hasTransitioned = false;
+        Debug.Log("轉場狀態已重置。");
     }
 }

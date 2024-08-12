@@ -13,6 +13,7 @@ public class TransitionController3 : MonoBehaviour
     private Vector3 jumpStartPosition;
     private bool isTransitionTriggered = false;
     private bool isAnimatorPaused = false;
+    private bool hasTransitioned = false; // 新增：用于标记是否已经转场
 
     private MoveActivateAndPauseAnimator moveActivateScript;
     private Animator objectAnimator;
@@ -50,16 +51,21 @@ public class TransitionController3 : MonoBehaviour
             {
                 isAnimatorPaused = false;
             }
-            yield return new WaitForSeconds(0.1f); // 每0.1秒檢查一次
+            yield return new WaitForSeconds(0.1f); // 每0.1秒检查一次
         }
     }
 
     public void StartTransition()
     {
-        if (!isTransitionTriggered && isAnimatorPaused)
+        if (!hasTransitioned && isAnimatorPaused) // 修改：检查是否已经转场
         {
             isTransitionTriggered = true;
+            hasTransitioned = true; // 标记已经转场
             StartCoroutine(TransitionCoroutine());
+        }
+        else if (hasTransitioned)
+        {
+            Debug.LogWarning("转场已经触发过，忽略此次请求。");
         }
         else if (!isAnimatorPaused)
         {
@@ -99,5 +105,13 @@ public class TransitionController3 : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
         sceneTransitionManager.GoToSceneAsync(sceneToLoad);
+    }
+
+    // 可选：如果需要重置状态（例如，用于测试目的）
+    public void ResetTransitionState()
+    {
+        hasTransitioned = false;
+        isTransitionTriggered = false;
+        Debug.Log("转场状态已重置。");
     }
 }
