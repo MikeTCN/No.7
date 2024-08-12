@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using UnityEngine.Events;
+using UnityEngine.Playables;
 using UnityEngine;
-using UnityEngine.Events;
+using System.Collections;
 
 public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
     public UnityEvent[] customEvents;
     public UnityEvent[] newCustomEvents;
 
-    public UnityEvent OnTriggerComplete; // 新增的事件，將在所有事件完成後觸發
+    public UnityEvent OnTriggerComplete; // 所有事件完成后触发
+
+    public PlayableDirector timeline2;  // 引用Timeline2
 
     private bool isStartCoroutineFinished = false;
     private bool hasStartedCustomEvent = false;
@@ -37,6 +40,7 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
         {
             StartCoroutine(TriggerEventsWithDelay(newCustomEvents, 1.6f));
             StartCoroutine(TransitionShaderValues());
+            StartCoroutine(PlayTimelineWithDelay());
             hasStartedCustomEvent = true;
         }
     }
@@ -48,11 +52,23 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
             events[i].Invoke();
             yield return new WaitForSeconds(delay);
         }
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(38.0f);
         isStartCoroutineFinished = true;
 
-        // 在所有事件完成後觸發 OnTriggerComplete 事件
+        // 触发 OnTriggerComplete 事件
         OnTriggerComplete.Invoke();
+    }
+
+    private IEnumerator PlayTimelineWithDelay()
+    {
+        // 停顿1秒后播放 Timeline2
+        yield return new WaitForSeconds(1.0f);
+
+        if (timeline2 != null)
+        {
+            timeline2.Play();
+            Debug.Log("Timeline2 started after 1-second delay.");
+        }
     }
 
     private void OnDisable()
@@ -84,7 +100,7 @@ public class TriggerEventOnMicrophoneLoudness : MonoBehaviour
 
     private IEnumerator TransitionShaderValues()
     {
-        float duration = 2f; // 漸變持續時間，可以根據需要調整
+        float duration = 2f; // 渐变持续时间，可以根据需要调整
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
