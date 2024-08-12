@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SextantRaycaster : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SextantRaycaster : MonoBehaviour
     private bool allStarsActivated = false;
     public static bool isNorthStarLocked = false; // 静态布尔变量
 
+    public PlayableDirector timelineManager2; // 需要在Inspector中链接到TimelineManager2
+
     void Start()
     {
         starsActivated = new bool[starMarkers.Length];
@@ -21,6 +24,9 @@ public class SextantRaycaster : MonoBehaviour
         {
             starMarker.GetComponent<MeshRenderer>().enabled = false;
         }
+
+        // 确保北极星的Mesh Renderer初始为禁用状态
+        northStar.GetComponent<MeshRenderer>().enabled = false;
 
         // 确保指引射线初始为禁用状态
         guideLine.enabled = false;
@@ -84,6 +90,36 @@ public class SextantRaycaster : MonoBehaviour
                 break;
             }
         }
+
+        // 如果所有星星都被激活，则触发时间线
+        if (allStarsActivated)
+        {
+            timelineManager2.Play(); // 播放TimelineManager2
+            Debug.Log("All stars activated. TimelineManager2 started.");
+        }
+    }
+
+    void CheckNorthStarAlignment()
+    {
+        Ray ray = sextantCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // 从摄像机的中心发射射线
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform == northStar)
+            {
+                // 激活北极星的Mesh Renderer
+                MeshRenderer meshRenderer = northStar.GetComponent<MeshRenderer>();
+                if (!meshRenderer.enabled)
+                {
+                    meshRenderer.enabled = true;
+                    Debug.Log("North Star activated");
+                }
+
+                isNorthStarLocked = true;
+                Debug.Log("North Star Locked");
+            }
+        }
     }
 
     IEnumerator DrawGuideLine()
@@ -117,21 +153,7 @@ public class SextantRaycaster : MonoBehaviour
         guideLine.SetPosition(1, endPosition);
         Debug.Log("Guide line drawn from Star6 and Star7 to North Star");
     }
-
-    void CheckNorthStarAlignment()
-    {
-        Ray ray = sextantCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // 从摄像机的中心发射射线
-
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.transform == northStar)
-            {
-                isNorthStarLocked = true;
-                Debug.Log("North Star Locked");
-            }
-        }
-    }
+  
 
     void LockLeftViewOnNorthStar()
     {
