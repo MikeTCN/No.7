@@ -176,8 +176,8 @@ Material:
     - _VorScale: 6.6
     - _VorSeed: 1.33
     - _VorSmoothness: 0.86
-    - _VorSpeed: 3
-    - _VorStrength: 5
+    - _VorSpeed: 0.06
+    - _VorStrength: 1
     - _YScale: 0
     - _ZWrite: 1
     m_Colors:
