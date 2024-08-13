@@ -897,76 +897,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "08-A sailor wouldn\u2019t just leave a stranded ship"
   - m_Version: 1
-    m_Start: 67.36666666666666
-    m_ClipIn: 0
-    m_Asset: {fileID: 5355537724310618032}
-    m_Duration: 5.379020833333334
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -483275689832719018}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: "09-In the Age of Discovery, ships often couldn\u2019t "
-  - m_Version: 1
-    m_Start: 73.03333333333333
+    m_Start: 67.88333333333334
     m_ClipIn: 0
     m_Asset: {fileID: -79944655849503415}
     m_Duration: 7.535729166666667
@@ -1035,76 +966,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 10-But every sailor would strive towards these two
   - m_Version: 1
-    m_Start: 80.78333333333333
-    m_ClipIn: 0
-    m_Asset: {fileID: -350282587878759214}
-    m_Duration: 4.7954791666666665
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -483275689832719018}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: 11-Most of them were designed without a return function
-  - m_Version: 1
-    m_Start: 85.81666666666666
+    m_Start: 76.03333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -7162176231359257842}
     m_Duration: 5.785
@@ -1173,7 +1035,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 12-They just push forward relentlessly
   - m_Version: 1
-    m_Start: 91.78333333333333
+    m_Start: 82.33333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -379458885927023523}
     m_Duration: 1.6733541666666667
@@ -1242,7 +1104,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 13-1-Blow a breath
   - m_Version: 1
-    m_Start: 93.68333333333334
+    m_Start: 84.0066875
     m_ClipIn: 0
     m_Asset: {fileID: 8619441482186044122}
     m_Duration: 1.2178958333333298
@@ -1329,23 +1191,6 @@ MonoBehaviour:
   m_Name: AudioPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 8300000, guid: d8da789e401146042801ebcef1a72d5d, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
---- !u!114 &-350282587878759214
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: 01678d05da58be140b9f93294ebd6a37, type: 3}
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
@@ -1509,7 +1354,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 94.90122916666667
+    m_Start: 85.22458333333333
     m_ClipIn: 0
     m_Asset: {fileID: -2867551196869256609}
     m_Duration: 0.20000000000000284
@@ -1602,7 +1447,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 94.90122916666667
+    m_Start: 85.22458333333333
     m_ClipIn: 0
     m_Asset: {fileID: 873356781944146537}
     m_Duration: 0.20000000000000284
@@ -1673,23 +1518,6 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
---- !u!114 &5355537724310618032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: cca637d452a170f4ca980c88b6fcc4c0, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &7048693232605952065
 MonoBehaviour:
   m_ObjectHideFlags: 1
