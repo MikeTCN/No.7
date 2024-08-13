@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class MoveActivateAndPauseAnimator : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MoveActivateAndPauseAnimator : MonoBehaviour
     public Vector3 targetPosition = new Vector3(230.789993f, 38.5009995f, 272.664001f);
     public float shrinkSpeed = 0.1f;
     public float minSphereSize = 0.01f;
+    public PlayableDirector timeline2Director; // 新增: Timeline2 的 PlayableDirector 引用
 
     private bool hasReachedTarget = false;
     private bool sphereDisappeared = false;
@@ -21,6 +23,10 @@ public class MoveActivateAndPauseAnimator : MonoBehaviour
         if (soundDetector == null)
         {
             Debug.LogError("請設置 PlayParticleSystemOnMicrophoneLoudness 腳本的引用！");
+        }
+        if (timeline2Director == null)
+        {
+            Debug.LogError("請設置 Timeline2 的 PlayableDirector 引用！");
         }
     }
 
@@ -79,6 +85,17 @@ public class MoveActivateAndPauseAnimator : MonoBehaviour
                 soundDetector.enabled = false;  // 禁用聲音檢測腳本
                 soundDetector.particles.Stop(); // 停止粒子系統
                 soundDetector.audioSource.Stop(); // 停止音頻源
+            }
+
+            // 播放 Timeline2 的音頻
+            if (timeline2Director != null)
+            {
+                timeline2Director.Play();
+                Debug.Log("Timeline2 開始播放");
+            }
+            else
+            {
+                Debug.LogError("Timeline2 Director 未設置！");
             }
         }
     }

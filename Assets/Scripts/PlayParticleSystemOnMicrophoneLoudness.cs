@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlayParticleSystemOnMicrophoneLoudness : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayParticleSystemOnMicrophoneLoudness : MonoBehaviour
     private float audioDuration = 3f;
     private float fadeOutDuration = 0.5f; // 淡出持續時間
     private bool isFirstUpdate = true; // 用於檢查是否是第一次更新
+
+
 
     void Start()
     {
@@ -80,4 +83,6 @@ public class PlayParticleSystemOnMicrophoneLoudness : MonoBehaviour
         particles.Stop();
         audioSource.Stop();
     }
+
+
 }
