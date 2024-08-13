@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Signals/Marsterrain2.signal.meta
 guid: c09278dc91403b54e96568524f3ce73a
 ========
 guid: 6a5347bb3c95d7d4f8ef1e1baf495ce7
 >>>>>>>> 694e8923174a8c0a5d737b90aa7daeba84d53a8a:Assets/final timeline/Finaltimeline1.playable.meta
-=======
-guid: 7cab818dd9795ab41ba5a06686b2b783
->>>>>>> 694e8923174a8c0a5d737b90aa7daeba84d53a8a
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
