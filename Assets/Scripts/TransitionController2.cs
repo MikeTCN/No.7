@@ -12,12 +12,13 @@ public class TransitionController2 : MonoBehaviour
     private Vector3 jumpStartPosition;
     public ParticleSystem cloudEffect;
     public float cloudEffectHeight = 80f;
+    public AudioSource audioSource; // 新增：用於播放音頻
 
-    private bool hasTransitioned = false; // 新增：用於標記是否已經轉場
+    private bool hasTransitioned = false;
 
     public void StartTransition()
     {
-        if (!hasTransitioned) // 檢查是否已經轉場
+        if (!hasTransitioned)
         {
             StartCoroutine(TransitionCoroutine());
         }
@@ -29,7 +30,7 @@ public class TransitionController2 : MonoBehaviour
 
     private IEnumerator TransitionCoroutine()
     {
-        hasTransitioned = true; // 標記轉場已開始
+        hasTransitioned = true;
 
         jumpStartPosition = transform.position;
 
@@ -37,6 +38,16 @@ public class TransitionController2 : MonoBehaviour
         float elapsedTime = 0f;
 
         bool cloudEffectTriggered = false;
+
+        // 播放音頻
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Audio source is not assigned!");
+        }
 
         while (elapsedTime < jumpDuration)
         {
@@ -68,6 +79,13 @@ public class TransitionController2 : MonoBehaviour
         }
 
         yield return new WaitForSeconds(transitionTime);
+
+        // 停止音頻
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+
         sceneTransitionManager.GoToSceneAsync(sceneToLoad);
     }
 
@@ -84,7 +102,6 @@ public class TransitionController2 : MonoBehaviour
         }
     }
 
-    // 可選：如果需要重置狀態（例如，用於測試目的）
     public void ResetTransitionState()
     {
         hasTransitioned = false;
