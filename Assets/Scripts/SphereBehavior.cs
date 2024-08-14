@@ -9,7 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SphereBehavior : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
-    public float flySpeed = 10f; // 飞行速度
+    public float flySpeed = 10f; // 默认飞行速度
     public float flyTime = 2f; // 飞行时间
     public bool IsThrown { get; private set; } = false; // 标记是否被丢出
 
@@ -24,19 +24,23 @@ public class SphereBehavior : MonoBehaviour
     void OnRelease(SelectExitEventArgs args)
     {
         // 检查物体是被丢出还是放下
-        //if (args.interactorObject is XRDirectInteractor)
+        Debug.Log("123");
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            Debug.Log("123");
-            Rigidbody rb = GetComponent<Rigidbody>();
-            if (rb != null )
-            {
-                wasThrown = true;
-                SphereManager.instance.IncrementThrownCount();
-                StartCoroutine(FlyAndDisappear(rb.velocity));
-            }
+            wasThrown = true;
+            SphereManager.instance.IncrementThrownCount();
+            StartCoroutine(FlyAndDisappear(rb.velocity));
         }
     }
 
+    // 带有速度参数的飞行和消失逻辑
+    public void FlyAndDisappearAutomatically(float customFlySpeed)
+    {
+        StartCoroutine(FlyAndDisappear(Vector3.up * customFlySpeed)); // 使用自定义速度向上飞走
+    }
+
+    // 自动飞行和消失的协程
     IEnumerator FlyAndDisappear(Vector3 initialVelocity)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -44,7 +48,7 @@ public class SphereBehavior : MonoBehaviour
 
         while (elapsedTime < flyTime)
         {
-            rb.velocity = initialVelocity;
+            rb.velocity = initialVelocity; // 使用给定的速度
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -52,11 +56,7 @@ public class SphereBehavior : MonoBehaviour
         yield return StartCoroutine(ShrinkAndDestroy());
         Destroy(gameObject); // 删除Sphere对象
     }
-    // 自动飞走并消失
-    public void FlyAndDisappearAutomatically()
-    {
-        StartCoroutine(FlyAndDisappear(Vector3.up * flySpeed)); // 向上飞走
-    }
+
     // 缩小并摧毁球体
     IEnumerator ShrinkAndDestroy()
     {

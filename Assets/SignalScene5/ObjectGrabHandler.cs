@@ -6,7 +6,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ObjectGrabController : MonoBehaviour
 {
-    public XRGrabInteractable[] objectsToMonitor; // 需要监测是否被抓握的物体
     public GameObject[] objectsToAppear; // 要出现的物体
     public Vector3[] targetScales; // 每个物体的目标缩放比例
     public float scaleSpeed = 1f; // 放大速度
@@ -19,18 +18,16 @@ public class ObjectGrabController : MonoBehaviour
             objectsToAppear[i].transform.localScale = Vector3.zero;
             objectsToAppear[i].SetActive(false); // 隐藏对象
         }
-
-        // 为每个需要监测的物体添加抓取事件监听器
-        foreach (XRGrabInteractable grabInteractable in objectsToMonitor)
-        {
-            grabInteractable.selectEntered.AddListener(OnGrab);
-        }
     }
 
-    // 当物体被抓住时调用
-    private void OnGrab(SelectEnterEventArgs args)
+    private void Update()
     {
-        StartCoroutine(ShowAndScaleObjects());
+        // 检查球体是否已经飞走
+        if (SphereManager.instance != null && SphereManager.instance.areSpheresFlownAway)
+        {
+            StartCoroutine(ShowAndScaleObjects());
+            enabled = false; // 禁用此脚本以防止重复调用
+        }
     }
 
     // 放大物体的协程

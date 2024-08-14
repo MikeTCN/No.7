@@ -12,6 +12,9 @@ public class SphereManager : MonoBehaviour
 
     public PlayableDirector finalTimeline2; // 引用FinalTimeline2
 
+    public float flySpeed = 5f; // 球飞出去的速度，暴露为可调变量
+    public bool areSpheresFlownAway = false; // 变量，用于检测球是否已经飞走
+
     void Awake()
     {
         if (instance == null)
@@ -30,21 +33,25 @@ public class SphereManager : MonoBehaviour
         thrownCount++;
         if (thrownCount >= requiredThrows)
         {
-            TriggerRemainingSpheres();
+            StartCoroutine(TriggerRemainingSpheresWithDelay());
             PlayFinalTimeline(); // 计数达到设定值时，播放时间线
         }
     }
 
-    // 触发剩余的球飞走并消失
-    void TriggerRemainingSpheres()
+    // 带有1秒延迟触发球飞走的协程
+    private IEnumerator TriggerRemainingSpheresWithDelay()
     {
+        yield return new WaitForSeconds(1f); // 添加1秒延迟
+
         foreach (SphereBehavior sphere in spheres)
         {
             if (sphere != null && !sphere.IsThrown)
             {
-                sphere.FlyAndDisappearAutomatically();
+                sphere.FlyAndDisappearAutomatically(flySpeed); // 传递可调速度
             }
         }
+
+        areSpheresFlownAway = true; // 在球飞走之后，将变量设置为true
     }
 
     // 播放FinalTimeline2

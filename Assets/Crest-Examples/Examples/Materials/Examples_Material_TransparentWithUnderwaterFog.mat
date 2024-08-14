@@ -105,7 +105,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - Color_26d3a1b07da242c89a8bb81f4b57963b: {r: 1, g: 0, b: 0, a: 0.14901961}
+    - Color_26d3a1b07da242c89a8bb81f4b57963b: {r: 0.6132076, g: 0.6132076, b: 0.6132076,
+        a: 0.14901961}
     - Color_c947370f755146ff9b086da67bd8cf4c: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 0, b: 0, a: 0.14901961}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
