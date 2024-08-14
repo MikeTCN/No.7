@@ -5,6 +5,7 @@ public class LightActivator : MonoBehaviour
 {
     public GameObject lightObject; // 要啟動的燈光物件
     public TriggerEventOnMicrophoneLoudness microphoneTrigger; // 參照到 TriggerEventOnMicrophoneLoudness 腳本
+    public AudioSource audioSource; // 要播放音效的AudioSource
 
     private void Start()
     {
@@ -20,6 +21,12 @@ public class LightActivator : MonoBehaviour
             return;
         }
 
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource not assigned in LightActivator!");
+            return;
+        }
+
         // 確保燈光一開始是關閉的
         lightObject.SetActive(false);
 
@@ -31,6 +38,16 @@ public class LightActivator : MonoBehaviour
     {
         lightObject.SetActive(true);
         Debug.Log("Light activated!");
+
+        if (audioSource != null)
+        {
+            audioSource.Play();
+            Debug.Log("Sound effect played!");
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource not assigned!");
+        }
     }
 
     private void OnDisable()
