@@ -791,7 +791,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 36-The journey is almost over
   - m_Version: 1
-    m_Start: 50
+    m_Start: 52
     m_ClipIn: 0
     m_Asset: {fileID: 6171190441470876894}
     m_Duration: 1.113875
