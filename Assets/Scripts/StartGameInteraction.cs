@@ -27,6 +27,13 @@ public class StartGameInteraction : MonoBehaviour
             }
         }
 
+        // 确保音频源在开始时是停止的
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.playOnAwake = false;
+        }
+
         // 检查是否已设置 SceneTransitionManager
         if (sceneTransitionManager == null)
         {
@@ -45,12 +52,12 @@ public class StartGameInteraction : MonoBehaviour
             isGameStarted = true;
 
             // 播放空间音频
-            if (audioSource != null)
+            if (audioSource != null && !audioSource.isPlaying)
             {
                 audioSource.Play();
-                Debug.Log("開始播放空間音頻 🎵");
+                Debug.Log("物體被抓起，開始播放空間音頻 🎵");
             }
-            else
+            else if (audioSource == null)
             {
                 Debug.LogError("AudioSource 未設置，無法播放音頻！ ❌");
             }
