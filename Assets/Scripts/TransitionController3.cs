@@ -10,10 +10,12 @@ public class TransitionController3 : MonoBehaviour
     public int sceneToLoad;
     public SceneTransitionManager sceneTransitionManager;
 
+    public AudioSource jumpAudioSource; // 新增：AudioSource引用
+
     private Vector3 jumpStartPosition;
     private bool isTransitionTriggered = false;
     private bool isAnimatorPaused = false;
-    private bool hasTransitioned = false; // 新增：用于标记是否已经转场
+    private bool hasTransitioned = false; // 标记是否已经转场
 
     private MoveActivateAndPauseAnimator moveActivateScript;
     private Animator objectAnimator;
@@ -57,10 +59,11 @@ public class TransitionController3 : MonoBehaviour
 
     public void StartTransition()
     {
-        if (!hasTransitioned && isAnimatorPaused) // 修改：检查是否已经转场
+        if (!hasTransitioned && isAnimatorPaused)
         {
             isTransitionTriggered = true;
             hasTransitioned = true; // 标记已经转场
+            PlayJumpAudio(); // 新增：播放音频
             StartCoroutine(TransitionCoroutine());
         }
         else if (hasTransitioned)
@@ -70,6 +73,18 @@ public class TransitionController3 : MonoBehaviour
         else if (!isAnimatorPaused)
         {
             Debug.LogWarning("Cannot start transition: Animator is not paused.");
+        }
+    }
+
+    private void PlayJumpAudio()
+    {
+        if (jumpAudioSource != null)
+        {
+            jumpAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource 未设置，无法播放跳跃音效。");
         }
     }
 
