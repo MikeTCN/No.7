@@ -22,7 +22,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 0.8833333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -1509079478325626268}
     m_Duration: 5.172125
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: -1
+    m_BlendOutDuration: 0
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -58,25 +58,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -91,7 +73,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 01-This is the Vostok
   - m_Version: 1
-    m_Start: 5.172125
+    m_Start: 6.055458333333333
     m_ClipIn: 0
     m_Asset: {fileID: 5996154867802166938}
     m_Duration: 7.194416666666666
@@ -99,29 +81,11 @@ MonoBehaviour:
     m_ParentTrack: {fileID: -8085551964384843033}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: -1
+    m_BlendInDuration: 0
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -160,7 +124,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 02-Before we delve into history,
   - m_Version: 1
-    m_Start: 12.633333333333333
+    m_Start: 13.516666666666666
     m_ClipIn: 0
     m_Asset: {fileID: -1619990992948416928}
     m_Duration: 3.1318958333333335
@@ -229,7 +193,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 03-Let me take a look at this sail
   - m_Version: 1
-    m_Start: 16
+    m_Start: 16.883333333333344
     m_ClipIn: 0
     m_Asset: {fileID: -6294241257182072123}
     m_Duration: 10.4158125
@@ -298,7 +262,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 04-What do you mean by lowering the sails,
   - m_Version: 1
-    m_Start: 26.566666666666666
+    m_Start: 27.45000000000001
     m_ClipIn: 0
     m_Asset: {fileID: 5342408580516028468}
     m_Duration: 7.999770833333334
@@ -367,7 +331,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "05-You! Use your brain. You\u2019re dead now "
   - m_Version: 1
-    m_Start: 34.733333333333334
+    m_Start: 35.61666666666665
     m_ClipIn: 0
     m_Asset: {fileID: -3125047543794817386}
     m_Duration: 3.9730416666666666

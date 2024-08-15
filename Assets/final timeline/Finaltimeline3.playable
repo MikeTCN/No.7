@@ -17,6 +17,23 @@ MonoBehaviour:
   m_bufferingTime: 0.1
   m_ClipProperties:
     volume: 1
+--- !u!114 &-3196992528699809320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: b33de5ba619ebf640a4d56034ea10199, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1
 --- !u!114 &-1535310113603652562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +291,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 10-Captain James Cook was the first to use a marine
   - m_Version: 1
-    m_Start: 11.639712529563651
+    m_Start: 14.323045862896981
     m_ClipIn: 0
     m_Asset: {fileID: 7820947687186720905}
     m_Duration: 7.926625
@@ -343,7 +360,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "11-So, you\u2019re one of the pioneers"
   - m_Version: 1
-    m_Start: 19.583333333333332
+    m_Start: 22.26666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 7381096148092278289}
     m_Duration: 7.655375
@@ -412,7 +429,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "12-How fascinating. We\u2019ve come so far"
   - m_Version: 1
-    m_Start: 27.283333333333335
+    m_Start: 29.966666666666647
     m_ClipIn: 0
     m_Asset: {fileID: 7519489645208160115}
     m_Duration: 1.1325093670437703
@@ -481,7 +498,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "09-Let\u2019s go back. Here, take this"
   - m_Version: 1
-    m_Start: 29.483333333333334
+    m_Start: 32.166666666666664
     m_ClipIn: 0
     m_Asset: {fileID: 5869318784087562047}
     m_Duration: 11.980354166666666
@@ -490,7 +507,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: -1
+    m_BlendOutDuration: 0
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -517,25 +534,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -550,7 +549,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: 13-By the way, are you interested in taking over my job
   - m_Version: 1
-    m_Start: 41.4636875
+    m_Start: 44.14702083333331
     m_ClipIn: 0
     m_Asset: {fileID: -1535310113603652562}
     m_Duration: 17.192833333333333
@@ -558,29 +557,11 @@ MonoBehaviour:
     m_ParentTrack: {fileID: 7042361042745849476}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: -1
+    m_BlendInDuration: 0
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -618,6 +599,75 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: interview
+  - m_Version: 1
+    m_Start: 11.639712529563651
+    m_ClipIn: 0
+    m_Asset: {fileID: -3196992528699809320}
+    m_Duration: 2.68333333333333
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 7042361042745849476}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: New Recording 53_01
   m_Markers:
     m_Objects: []
   m_TrackProperties:
